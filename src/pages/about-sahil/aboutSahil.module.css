@@ -130,6 +130,7 @@
     right: -4px;
     bottom: -4px;
     z-index: -1;
+    animation: rainbow-border 3s linear infinite;
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -197,6 +198,12 @@
     display: inline-block;
     margin-top: 1rem;
     transition: all 0.3s ease;
+    min-height: 3.5rem;
+    width: 100%;
+    max-width: 42rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .funFactCard:hover {
@@ -218,6 +225,23 @@
     font-weight: 500;
     margin: 0;
     color: #f8fafc;
+    text-align: center;
+    line-height: 1.4;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.5s ease;
+    animation: fadeInText 0.5s ease;
+  }
+  
+  @keyframes fadeInText {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   /* Main Content */
@@ -659,6 +683,17 @@
       width: 12rem;
       height: 16rem;
     }
+    
+    .funFactCard {
+      min-height: 4rem;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .funFactText {
+      font-size: 1rem;
+      line-height: 1.3;
+    }
   }
   
   @media (max-width: 480px) {
@@ -669,6 +704,17 @@
     
     .heroContent {
       gap: 1.5rem;
+    }
+    
+    .funFactCard {
+      min-height: 4.5rem;
+      padding: 1rem 1.25rem;
+      margin-top: 1.25rem;
+    }
+    
+    .funFactText {
+      font-size: 0.95rem;
+      line-height: 1.25;
     }
   }
   

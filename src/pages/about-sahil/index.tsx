@@ -6,6 +6,7 @@ const AboutSahilPage: NextPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredSkill, setHoveredSkill] = useState<number | null>(null);
   const [currentFact, setCurrentFact] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const skills = [
     { name: 'React', level: 95, color: '#61DAFB' },
@@ -76,6 +77,17 @@ const AboutSahilPage: NextPage = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <div className={styles.pageContainer}>
       {/* Hero Section */}
@@ -98,8 +110,8 @@ const AboutSahilPage: NextPage = () => {
           <div className={styles.profileSection}>
             <div className={styles.profilePhoto}>
               <img 
-                src="/sahilImage.png" 
-                alt="Sahil Walecha - Lead Frontend Developer" 
+src={isMobile ? "/sahilImageDown.png" : "/sahilImage.png"}                
+alt="Sahil Walecha - Lead Frontend Developer" 
                 className={styles.profileImage}
               />
             </div>
