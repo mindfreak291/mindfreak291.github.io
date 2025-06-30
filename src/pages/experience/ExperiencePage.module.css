@@ -338,12 +338,12 @@
   /* Responsive Design */
   @media (max-width: 768px) {
     .experienceContainer {
-      padding: 100px 25px;
+      padding: 80px 20px;
     }
     
     .pageTitle::after,
     .skillsTitle::after {
-      width: 200px;
+      width: 150px;
     }
     
     .experienceContent {
@@ -358,23 +358,60 @@
       overflow-y: hidden;
       border-bottom: 2px solid var(--border-tab);
       border-left: none;
+      padding-bottom: 0;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      white-space: nowrap;
+    }
+    
+    .tabList::-webkit-scrollbar {
+      display: none;
     }
     
     .tabButton {
       border-left: none;
       border-bottom: 2px solid var(--border-tab);
-      min-width: 120px;
+      min-width: auto;
+      width: auto;
       height: auto;
-      padding: 15px 20px;
+      padding: 12px 16px;
+      font-size: 12px;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
     
     .tabIndicator {
       bottom: 0;
       top: auto;
-      width: 120px;
       height: 2px;
+      width: 0;
       transform: translateX(0);
-      transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+      transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+    
+    .jobTitle {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+    
+    .company {
+      display: block;
+      margin-top: 5px;
+    }
+    
+    .descriptionItem {
+      font-size: 14px;
+      line-height: 1.5;
+      padding-left: 25px;
+    }
+    
+    .techList {
+      gap: 6px;
+    }
+    
+    .techItem {
+      font-size: 11px;
+      padding: 4px 8px;
     }
     
     .skillsGrid {
@@ -385,34 +422,65 @@
   
   @media (max-width: 480px) {
     .experienceContainer {
-      padding: 80px 20px;
+      padding: 60px 15px;
     }
     
     .pageTitle,
     .skillsTitle {
-      font-size: 24px;
+      font-size: 22px;
+    }
+    
+    .titleNumber {
+      font-size: 16px;
     }
     
     .pageTitle::after,
     .skillsTitle::after {
-      width: 100px;
+      width: 80px;
     }
     
     .tabButton {
-      min-width: 100px;
-      font-size: 12px;
-      padding: 12px 15px;
-    }
-    
-    .tabIndicator {
-      width: 100px;
+      padding: 10px 12px;
+      font-size: 11px;
     }
     
     .jobTitle {
-      font-size: 20px;
+      font-size: 16px;
+    }
+    
+    .jobPeriod,
+    .jobLocation {
+      font-size: 12px;
     }
     
     .descriptionItem {
-      font-size: 15px;
+      font-size: 13px;
+      padding-left: 20px;
+      margin-bottom: 8px;
+    }
+    
+    .descriptionItem::before {
+      font-size: 12px;
+    }
+    
+    .techTitle {
+      font-size: 13px;
+    }
+    
+    .techItem {
+      font-size: 10px;
+      padding: 3px 6px;
+    }
+    
+    .skillCategory {
+      padding: 20px;
+    }
+    
+    .skillCategory h3 {
+      font-size: 16px;
+    }
+    
+    .skillCategory p {
+      font-size: 13px;
     }
   }

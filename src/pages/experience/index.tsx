@@ -104,7 +104,8 @@ const ExperiencePage: NextPage = () => {
           </h1>
         </div>
 
-        <div className={`${styles.experienceContent} ${isVisible ? styles.visible : ''}`}>
+        <div className={`${styles.experienceContent} ${isVisible ? styles.visible : ''}`}
+             style={{ '--active-tab': activeTab } as React.CSSProperties}>
           {/* Tab Navigation */}
           <div className={styles.tabList} role="tablist">
             {experiences.map((exp, index) => (
@@ -119,10 +120,7 @@ const ExperiencePage: NextPage = () => {
                 {exp.company}
               </button>
             ))}
-            <div 
-              className={styles.tabIndicator}
-              style={{ transform: `translateY(${activeTab * 42}px)` }}
-            />
+            <div className={styles.tabIndicator} />
           </div>
 
           {/* Tab Content */}
