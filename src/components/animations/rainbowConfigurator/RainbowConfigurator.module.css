@@ -396,48 +396,152 @@
   }
 }
 
+/* Enhanced Mobile Experience - Full Width Rainbow */
 @media screen and (max-width: 768px) {
   .rainbowContainer {
-    top: 90px;
-    right: -20px;
-    width: 350px;
-    height: 240px;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
   
   .rainbowDisplay {
-    transform: scale(0.7);
+    transform: scale(1);
+    opacity: 0.85;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .rainbowSvg {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-width: 320px;
+  }
+  
+  .avatarContainer {
+    left: 50%;
+    bottom: 30px;
+  }
+  
+  .avatarImage {
+    width: 70px;
+    height: 70px;
+    font-size: 0.9rem;
+  }
+  
+  .settingsIcon {
+    position: fixed;
+    top: 90px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+  }
+  
+  .configuratorPanel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    width: calc(100vw - 20px);
+    max-width: 350px;
+    max-height: 80vh;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .configuratorPanel.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .panelHeader h3 {
+    font-size: 1.2rem;
+  }
+  
+  .controlGroup label {
+    font-size: 0.85rem;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .buttonGroup {
+    gap: 8px;
+  }
+  
+  .panelActions {
+    gap: 10px;
+  }
+  
+  .actionBtn {
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra Small Mobile Devices */
+@media screen and (max-width: 480px) {
+  .rainbowContainer {
+    top: 70px;
+    height: 250px;
+    padding: 0 5px;
+  }
+  
+  .rainbowDisplay {
     opacity: 0.8;
+  }
+  
+  .rainbowSvg {
+    min-width: 280px;
+  }
+  
+  .avatarContainer {
+    bottom: 20px;
   }
   
   .avatarImage {
     width: 60px;
     height: 60px;
+    font-size: 0.8rem;
   }
   
   .settingsIcon {
-    top: 15px;
-    right: 60px;
-    width: 35px;
-    height: 35px;
+    top: 80px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
     font-size: 0.9rem;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   }
   
   .configuratorPanel {
-    top: auto;
-    right: -320px;
-    left: auto;
-    width: 300px;
-    max-height: 85vh;
+    width: calc(100vw - 10px);
+    max-width: 320px;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.98);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-  }
-  
-  .configuratorPanel.open {
-    right: 10px;
+    max-height: 85vh;
   }
   
   .panelHeader h3 {
@@ -448,58 +552,23 @@
     font-size: 0.8rem;
   }
   
-  .slider::-webkit-slider-thumb {
-    width: 22px;
-    height: 22px;
+  .panelDescription {
+    padding: 12px;
+    font-size: 0.85rem;
   }
   
   .buttonGroup {
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
   }
   
   .panelActions {
     flex-direction: column;
     gap: 8px;
   }
-}
-
-@media screen and (max-width: 480px) {
-  .rainbowContainer {
-    top: 80px;
-    right: 0px;
-    width: 300px;
-    height: 200px;
-  }
   
-  .rainbowDisplay {
-    transform: scale(0.6);
-    opacity: 0.75;
-  }
-  
-  .avatarImage {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .settingsIcon {
-    top: 12px;
-    right: 40px;
-    width: 32px;
-    height: 32px;
-    font-size: 0.85rem;
-  }
-  
-  .configuratorPanel {
-    top: auto;
-    right: -280px;
-    width: 260px;
-    max-height: 80vh;
-    padding: 12px;
-    border-radius: 12px;
-  }
-  
-  .configuratorPanel.open {
-    right: 10px;
+  .actionBtn {
+    padding: 10px;
+    font-size: 0.8rem;
   }
 }
