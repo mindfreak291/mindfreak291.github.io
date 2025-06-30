@@ -13,7 +13,8 @@ const nextConfig: NextConfig = {
     unoptimized: true
   },
   
-  // Remove experimental config that might interfere
+  // Change the build directory structure for GitHub Pages
+  distDir: 'out',
   
   // ESLint configuration for static export
   eslint: {
