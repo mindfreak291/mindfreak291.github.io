@@ -1,0 +1,418 @@
+/* ExperiencePage.module.css - Brittany Chiang Inspired with Theme Support */
+
+.pageContainer {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fef7ff 0%, #f0f9ff 50%, #ecfdf5 100%);
+    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    transition: background 0.3s ease, color 0.3s ease;
+    
+    /* Light Theme Variables */
+    --bg-primary: #fef7ff;
+    --bg-secondary: #f0f9ff;
+    --bg-tertiary: #ecfdf5;
+    --bg-card: #ffffff;
+    --bg-tab: #f8fafc;
+    --bg-tab-active: #ffffff;
+    
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --text-tertiary: #64748b;
+    --text-accent: #0ea5e9;
+    --text-number: #06b6d4;
+    --text-company: #0ea5e9;
+    
+    --border-color: rgba(0, 0, 0, 0.1);
+    --border-tab: #e2e8f0;
+    --border-active: #0ea5e9;
+    
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Dark Theme Variables */
+  :global([data-theme="dark"]) .pageContainer {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --bg-card: #1e293b;
+    --bg-tab: #334155;
+    --bg-tab-active: #475569;
+    
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-tertiary: #94a3b8;
+    --text-accent: #38bdf8;
+    --text-number: #22d3ee;
+    --text-company: #38bdf8;
+    
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-tab: rgba(255, 255, 255, 0.1);
+    --border-active: #38bdf8;
+    
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  .experienceContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 100px 50px;
+  }
+  
+  /* Header Section */
+  .headerSection {
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  
+  .headerSection.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .pageTitle {
+    font-size: clamp(26px, 5vw, 32px);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.1;
+  }
+  
+  .titleNumber {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: clamp(14px, 3vw, 20px);
+    font-weight: 400;
+    color: var(--text-number);
+    margin-right: 10px;
+  }
+  
+  .pageTitle::after {
+    content: '';
+    display: block;
+    width: 300px;
+    height: 1px;
+    background: var(--border-color);
+    margin-left: 20px;
+  }
+  
+  /* Experience Content */
+  .experienceContent {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 100px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) 0.1s;
+  }
+  
+  .experienceContent.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Tab Navigation */
+  .tabList {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+    background: transparent;
+  }
+  
+  .tabButton {
+    background: none;
+    border: none;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-align: left;
+    padding: 12px 20px;
+    border-left: 2px solid var(--border-tab);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+    position: relative;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+  
+  .tabButton:hover {
+    background: var(--bg-tab);
+    color: var(--text-accent);
+  }
+  
+  .tabButton.active {
+    color: var(--text-accent);
+    background: var(--bg-tab);
+  }
+  
+  .tabIndicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 42px;
+    background: var(--border-active);
+    border-radius: 2px;
+    transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    z-index: 1;
+  }
+  
+  /* Tab Content */
+  .tabContent {
+    flex: 1;
+    min-height: 350px;
+  }
+  
+  .tabPanel {
+    width: 100%;
+  }
+  
+  .jobTitle {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+  }
+  
+  .company {
+    color: var(--text-accent);
+  }
+  
+  .companyName {
+    color: var(--text-company);
+    transition: color 0.25s ease;
+  }
+  
+  .jobPeriod {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 13px;
+    color: var(--text-tertiary);
+    margin: 0 0 5px 0;
+  }
+  
+  .jobLocation {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 13px;
+    color: var(--text-tertiary);
+    margin: 0 0 25px 0;
+  }
+  
+  .jobDescription {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+  }
+  
+  .descriptionItem {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  
+  .descriptionItem::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--text-accent);
+    font-size: 14px;
+    line-height: 16px;
+  }
+  
+  /* Technologies */
+  .technologies {
+    margin-top: 25px;
+  }
+  
+  .techTitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin: 0 0 10px 0;
+  }
+  
+  .techList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .techItem {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 12px;
+    color: var(--text-accent);
+    background: var(--bg-tab);
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: 1px solid var(--border-color);
+    transition: all 0.25s ease;
+  }
+  
+  .techItem:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Skills Section */
+  .skillsSection {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+  }
+  
+  .skillsSection.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .skillsTitle {
+    font-size: clamp(26px, 5vw, 32px);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 50px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.1;
+  }
+  
+  .skillsTitle::after {
+    content: '';
+    display: block;
+    width: 300px;
+    height: 1px;
+    background: var(--border-color);
+    margin-left: 20px;
+  }
+  
+  .skillsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  
+  .skillCategory {
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    transition: all 0.25s ease;
+  }
+  
+  .skillCategory:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .skillCategory h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin: 0 0 15px 0;
+  }
+  
+  .skillCategory p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .experienceContainer {
+      padding: 100px 25px;
+    }
+    
+    .pageTitle::after,
+    .skillsTitle::after {
+      width: 200px;
+    }
+    
+    .experienceContent {
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .tabList {
+      flex-direction: row;
+      min-width: auto;
+      overflow-x: auto;
+      overflow-y: hidden;
+      border-bottom: 2px solid var(--border-tab);
+      border-left: none;
+    }
+    
+    .tabButton {
+      border-left: none;
+      border-bottom: 2px solid var(--border-tab);
+      min-width: 120px;
+      height: auto;
+      padding: 15px 20px;
+    }
+    
+    .tabIndicator {
+      bottom: 0;
+      top: auto;
+      width: 120px;
+      height: 2px;
+      transform: translateX(0);
+      transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+    
+    .skillsGrid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .experienceContainer {
+      padding: 80px 20px;
+    }
+    
+    .pageTitle,
+    .skillsTitle {
+      font-size: 24px;
+    }
+    
+    .pageTitle::after,
+    .skillsTitle::after {
+      width: 100px;
+    }
+    
+    .tabButton {
+      min-width: 100px;
+      font-size: 12px;
+      padding: 12px 15px;
+    }
+    
+    .tabIndicator {
+      width: 100px;
+    }
+    
+    .jobTitle {
+      font-size: 20px;
+    }
+    
+    .descriptionItem {
+      font-size: 15px;
+    }
+  }

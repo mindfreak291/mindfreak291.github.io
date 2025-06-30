@@ -1,0 +1,80 @@
+.animated-logo {
+  position: relative;
+}
+
+.logo-link {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  cursor: pointer;
+  position: relative;
+  padding: 4px 0;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Elegant underline effect */
+.logo-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #1a1a1a, transparent);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateX(-50%);
+}
+
+.logo-link.hovered::before {
+  width: 100%;
+}
+
+/* Subtle letter spacing animation */
+.logo-link.hovered {
+  letter-spacing: 0.05em;
+  transform: translateY(-1px);
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .logo-link {
+    color: #f8fafc;
+  }
+  
+  .logo-link::before {
+    background: linear-gradient(90deg, transparent, #f8fafc, transparent);
+  }
+  
+  .logo-link.hovered {
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+  .logo-link {
+    font-size: 1.3rem;
+  }
+}
+
+/* Accessibility - respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .logo-link {
+    transition: none;
+  }
+  
+  .logo-link::before {
+    transition: none;
+  }
+  
+  .logo-link.hovered {
+    transform: none;
+    letter-spacing: normal;
+    text-shadow: none;
+  }
+}
