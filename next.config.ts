@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
   
-  // GitHub Pages configuration - NO basePath needed for username.github.io repos
+  // GitHub Pages configuration
   output: 'export',
   trailingSlash: true,
   
@@ -13,8 +13,7 @@ const nextConfig: NextConfig = {
     unoptimized: true
   },
   
-  // Disable server-side features for static export
-  distDir: 'out',
+  // Remove experimental config that might interfere
   
   // ESLint configuration for static export
   eslint: {
